@@ -176,7 +176,7 @@ class extends Component {
             <div class="mb-4">
                 <flux:label>Payment Proof</flux:label>
                 <div class="flex items-center gap-4 mt-2">
-                    <a href="{{ route('payment-proof', ['orderId' => $order->id, 'filename' => basename($order->payment_proof)]) }}" target="_blank" class="flex items-center gap-2 text-primary-600 hover:underline">
+                    <a href="{{ route('payment-proof', ['orderCode' => $order->code, 'filename' => basename($order->payment_proof)]) }}" target="_blank" class="flex items-center gap-2 text-primary-600 hover:underline">
                         <flux:icon.document-text class="w-6 h-6" />
                         {{ basename($order->payment_proof) }}
                     </a>
