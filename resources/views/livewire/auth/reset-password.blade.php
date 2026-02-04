@@ -1,16 +1,15 @@
 <?php
 
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\{Hash, Password, Session};
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Locked;
+use Livewire\Attributes\{Title, Layout, Locked};
 use Livewire\Volt\Component;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+new #[Layout('components.layouts.auth')] 
+    #[Title('Reset Password')]
+    class extends Component {
     #[Locked]
     public string $token = '';
     public string $email = '';

@@ -148,10 +148,10 @@ class extends Component {
                 <div>
                     <flux:heading size="lg" class="mb-4">Billing Information</flux:heading>
                     <div class="space-y-2">
-                        <div class="font-medium">{{ $order->user->name }}</div>
-                        <div class="text-neutral-600 dark:text-neutral-400">{{ $order->user->email }}</div>
-                        @if($order->user->phone_numbers)
-                            <div class="text-neutral-600 dark:text-neutral-400">{{ $order->user->phone_numbers }}</div>
+                        <div class="font-medium">{{ $order->name }}</div>
+                        <div class="text-neutral-600 dark:text-neutral-400">{{ $order->email }}</div>
+                        @if($order->phone_numbers)
+                            <div class="text-neutral-600 dark:text-neutral-400">{{ $order->phone_numbers }}</div>
                         @endif
                         @if($order->address)
                             <div class="mt-2 text-neutral-600 dark:text-neutral-400">

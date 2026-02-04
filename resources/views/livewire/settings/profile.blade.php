@@ -5,11 +5,11 @@ use Illuminate\Support\Facades\{Auth, Session, Storage};
 use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\{Title};
 use Flux\Flux;
 
-new #[Layout('components.layouts.admin')]
-    #[Title('Dashboard')]
-class extends Component {
+new #[Title('Profile')]
+    class extends Component {
     use WithFileUploads;
 
     public string $name = '';

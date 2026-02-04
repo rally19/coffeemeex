@@ -4,7 +4,7 @@ use Livewire\Volt\Component;
 use App\Models\Gallery;
 
 new #[Layout('components.layouts.app')]
-    #[Title('About Coffeemeex - Yogyakarta\'s Finest Coffee')]
+    #[Title('About')]
 class extends Component {
     
     #[Computed]

@@ -5,9 +5,9 @@
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:header container class="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 sticky top-0">
-            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+            <flux:sidebar.toggle class="lg:hidden top-1 lg:top-0" icon="bars-2" inset="left" />
 
-            <a href="{{ route('home') }}" class="ml-2 mr-5 flex items-center space-x-2 lg:ml-0" wire:navigate>
+            <a href="{{ route('home') }}" class="ml-2 mr-5 flex items-center space-x-2 lg:ml-0 mt-2 lg:mt-0" wire:navigate>
                 <x-app-logo />
             </a>
 
@@ -40,7 +40,7 @@
             
 
             <!-- Desktop User Menu -->
-            <flux:dropdown position="top" align="end">
+            <flux:dropdown position="top" align="end" class="mt-2 lg:mt-0">
                 <div class="flex items-center gap-4">
                     @auth
                         <div class="relative">
@@ -145,98 +145,7 @@
             </flux:navlist>
         </flux:sidebar>
 
-        <main>
-            {{ $slot }}
-        </main>
-
-        <!-- Footer Section - Minimalist Design -->
-        <footer class="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 mt-auto">
-            <div class="container mx-auto px-4 py-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Brand Column -->
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2">
-                            <x-app-logo class="w-8 h-8" />
-                        </div>
-                        <flux:text class="text-zinc-600 dark:text-zinc-400 text-sm">
-                            Yogyakarta's beloved coffee destination where every cup tells a story.
-                        </flux:text>
-                    </div>
-
-                    <!-- Quick Links Column -->
-                    <div>
-                        <flux:heading size="md" class="mb-4 text-zinc-800 dark:text-zinc-100">Quick Links</flux:heading>
-                        <div class="space-y-2">
-                            <a href="{{ route('home') }}" wire:navigate 
-                               class="block text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm transition-colors">
-                                Home
-                            </a>
-                            <a href="{{ route('menu') }}" wire:navigate 
-                               class="block text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm transition-colors">
-                                Menu
-                            </a>
-                            <a href="{{ route('about') }}" wire:navigate 
-                               class="block text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm transition-colors">
-                                About Us
-                            </a>
-                            <a href="{{ route('contact') }}" wire:navigate 
-                               class="block text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm transition-colors">
-                                Contact
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Legal & Contact Column -->
-                    <div>
-                        <flux:heading size="md" class="mb-4 text-zinc-800 dark:text-zinc-100">Legal & Contact</flux:heading>
-                        <div class="space-y-2">
-                            <a href="{{ route('legal') }}" wire:navigate 
-                               class="block text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm transition-colors">
-                                Terms & Privacy
-                            </a>
-                            <flux:text class="text-zinc-600 dark:text-zinc-400 text-sm">
-                                Jl. Coffee Street No. 123
-                            </flux:text>
-                            <flux:text class="text-zinc-600 dark:text-zinc-400 text-sm">
-                                Yogyakarta 55281
-                            </flux:text>
-                            <flux:text class="text-zinc-600 dark:text-zinc-400 text-sm">
-                                (0274) 567-8901
-                            </flux:text>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Divider -->
-                <div class="my-6 border-t border-zinc-200 dark:border-zinc-700"></div>
-
-                <!-- Bottom Bar -->
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <flux:text class="text-sm text-zinc-500 dark:text-zinc-500 text-center md:text-left">
-                        © {{ date('Y') }} Coffeemeex. All rights reserved.
-                    </flux:text>
-                    
-                    <!-- Social Media -->
-                    <div class="flex items-center gap-4">
-                        <a href="https://instagram.com/coffeemeex" target="_blank" rel="noopener noreferrer" 
-                           class="text-zinc-500 hover:text-amber-600 dark:text-zinc-400 dark:hover:text-amber-400 transition-colors">
-                            <flux:icon.user-circle class="w-5 h-5" />
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                        <a href="https://facebook.com/coffeemeex" target="_blank" rel="noopener noreferrer" 
-                           class="text-zinc-500 hover:text-amber-600 dark:text-zinc-400 dark:hover:text-amber-400 transition-colors">
-                            <flux:icon.user-circle class="w-5 h-5" />
-                            <span class="sr-only">Facebook</span>
-                        </a>
-                        <a href="https://twitter.com/coffeemeex" target="_blank" rel="noopener noreferrer" 
-                           class="text-zinc-500 hover:text-amber-600 dark:text-zinc-400 dark:hover:text-amber-400 transition-colors">
-                            <flux:icon.user-circle class="w-5 h-5" />
-                            <span class="sr-only">Twitter</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {{ $slot }}
 
         @fluxScripts
         @persist('toast')

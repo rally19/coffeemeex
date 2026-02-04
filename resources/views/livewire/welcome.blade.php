@@ -5,7 +5,7 @@ use App\Models\{Gallery, Item, OrderItem};
 use Illuminate\Support\Facades\DB;
 
 new #[Layout('components.layouts.app')]
-    #[Title('Coffeemeex - Yogyakarta\'s Finest Coffee')]
+    #[Title('Coffeemeex')]
 class extends Component {
     
     #[Computed]

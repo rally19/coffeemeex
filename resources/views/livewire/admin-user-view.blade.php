@@ -9,7 +9,7 @@ use App\Models\User;
 use Flux\Flux;
 
 new #[Layout('components.layouts.admin')]
-    #[Title('Edit User')]
+    #[Title('View User')]
     
 class extends Component {
     use WithFileUploads;

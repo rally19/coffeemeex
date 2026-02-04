@@ -6,7 +6,8 @@ use App\Models\TagType;
 use App\Models\CartItem;
 use Flux\Flux;
 
-new #[Title('Menu')]
+new #[Layout('components.layouts.app')]
+    #[Title('Menu')]
 class extends Component {
     
     public bool $showFilters = false;
@@ -25,6 +26,7 @@ class extends Component {
     public $filters = [
         'code' => '',
         'tags' => [],
+        'tag_types' => [],
         'available_only' => true,
         'min_price' => null,
         'max_price' => null,
@@ -79,6 +81,7 @@ class extends Component {
         $this->filters = [
             'code' => '',
             'tags' => [],
+            'tag_types' => [],
             'available_only' => true,
             'min_price' => null,
             'max_price' => null,
@@ -105,6 +108,20 @@ class extends Component {
             $this->filters['tags'] = array_diff($this->filters['tags'], [$tagId]);
         } else {
             $this->filters['tags'][] = $tagId;
+        }
+        
+        $this->reset('loadedCount');
+        $this->loadedCount = $this->perLoad;
+        session()->put('menu.filters', $this->filters);
+        session()->put('menu.loadedCount', $this->loadedCount);
+    }
+    
+    public function toggleTagType($typeId)
+    {
+        if (in_array($typeId, $this->filters['tag_types'])) {
+            $this->filters['tag_types'] = array_diff($this->filters['tag_types'], [$typeId]);
+        } else {
+            $this->filters['tag_types'][] = $typeId;
         }
         
         $this->reset('loadedCount');
@@ -205,6 +222,13 @@ class extends Component {
                 $query->whereHas('tags', function ($q) {
                     $q->whereIn('tags.id', $this->filters['tags']);
                 }, '>=', count($this->filters['tags']));
+            })
+            ->when($this->filters['tag_types'] ?? [], function ($query) {
+                $query->whereHas('tags', function ($q) {
+                    $q->whereHas('type', function ($typeQuery) {
+                        $typeQuery->whereIn('types.id', $this->filters['tag_types']);
+                    });
+                });
             })
             ->when($this->filters['available_only'] ?? true, function ($query) {
                 $query->where('status', 'available')
@@ -334,7 +358,7 @@ x-data="{
     @if($this->getItems()->count())
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         @foreach ($this->getItems()->take($this->loadedCount) as $item)
-        <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow relative">
+        <div class="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow relative bg-gradient-to-r from-amber-900 to-amber-800">
             @if(!$item->is_available)
                 <div class="absolute inset-0 bg-gray-400/30 z-10"></div>
             @endif
@@ -374,7 +398,7 @@ x-data="{
                 
                 <div class="flex flex-wrap gap-1 mb-4">
                     @foreach($item->tags->take(3) as $tag)
-                        <flux:badge color="zinc" variant="solid" rounded>
+                        <flux:badge color="amber" variant="solid" rounded>
                             {{ $tag->name }}
                         </flux:badge>
                     @endforeach
@@ -548,11 +572,32 @@ x-data="{
                 <flux:checkbox wire:model.live="filters.available_only" />
             </div>
             
+            {{-- Tag Types Filter Section --}}
             <div>
+                <flux:label>Filter by Category/Types</flux:label>
+                <div class="space-y-2 mb-4 flex flex-wrap gap-x-4 gap-y-2">
+                    @foreach($this->getTagTypesWithTags as $type)
+                        <div class="flex items-center">
+                            <flux:checkbox 
+                                wire:model.live="filters.tag_types"
+                                value="{{ $type->id }}"
+                                id="type_{{ $type->id }}"
+                            />
+                            <label for="type_{{ $type->id }}" class="ml-2 cursor-pointer whitespace-nowrap">
+                                {{ $type->name }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            {{-- Individual Tags Filter Section --}}
+            <div>
+                <flux:label>Filter by Specific Tags</flux:label>
                 @foreach($this->getTagTypesWithTags as $type)
                     @if($type->tags->count())
                         <div class="mb-4">
-                            <flux:label>{{ $type->name }}</flux:label>
+                            <flux:text class="text-sm font-medium mb-2">{{ $type->name }}</flux:text>
                             <div class="flex flex-wrap gap-2">
                                 @foreach($type->tags as $tag)
                                     <flux:badge 

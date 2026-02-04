@@ -1,12 +1,13 @@
 <?php
 
 use App\Livewire\Actions\Logout;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\{Auth, Session};
+use Livewire\Attributes\{Title, Layout};
 use Livewire\Volt\Component;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+new #[Layout('components.layouts.auth')] 
+    #[Title('Verify Email')]
+    class extends Component {
     /**
      * Send an email verification notification to the user.
      */

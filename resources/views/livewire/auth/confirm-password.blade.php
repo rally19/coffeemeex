@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\{Title, Layout};
 use Livewire\Volt\Component;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+
+new #[Layout('components.layouts.auth')] 
+    #[Title('Confirm Password')]
+    class extends Component {
     public string $password = '';
 
     /**

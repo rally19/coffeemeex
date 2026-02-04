@@ -2,14 +2,15 @@
 
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\{Auth, Hash};
 use Illuminate\Validation\Rules;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\{Title, Layout};
 use Livewire\Volt\Component;
 use Flux\Flux;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+new #[Layout('components.layouts.auth')] 
+    #[Title('Register')]
+    class extends Component {
     public int $currentStep = 1;
     public array $step1 = [
         'name' => '',
@@ -108,6 +109,20 @@ new #[Layout('components.layouts.auth')] class extends Component {
         );
 
         $this->redirectIntended(route('dashboard', absolute: false), navigate: true);
+    }
+
+    public function messages(): array
+    {
+        return [
+            'step1.name.required' => 'The name field is required.',
+            'step1.email.required' => 'The email field is required.',
+            'step1.email.unique' => 'This email is already taken.',
+            'step1.password.required' => 'The password field is required.',
+            'step1.password.confirmed' => 'The passwords do not match.',
+            'step2.phone_numbers.required' => 'The phone number field is required.',
+            'step2.address.required' => 'The address field is required.',
+            'step3.gender.required' => 'The gender field is required.',
+        ];
     }
 }; ?>
 

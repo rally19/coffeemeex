@@ -4,7 +4,7 @@ use Livewire\Volt\Component;
 use App\Models\Gallery;
 
 new #[Layout('components.layouts.app')]
-    #[Title('Legal - Terms & Privacy | Coffeemeex')]
+    #[Title('Terms & Privacy')]
 class extends Component {
     
     #[Computed]

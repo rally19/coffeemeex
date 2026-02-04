@@ -11,7 +11,7 @@ class extends Component {
     
     public Item $item;
     public int $cartCount = 0;
-    public bool $isAvailable = false; // Add this property
+    public bool $isAvailable = false;
     
     public function mount(string $code): void
     {

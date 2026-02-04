@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Flux\Flux;
 
 new #[Layout('components.layouts.app')]
-    #[Title('Contact Us - Coffeemeex Yogyakarta')]
+    #[Title('Contact')]
 class extends Component {
     use WithFileUploads;
     

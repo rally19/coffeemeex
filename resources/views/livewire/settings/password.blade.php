@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Volt\Component;
+use Livewire\Attributes\{Title};
 
-new class extends Component {
+new #[Title('Password')]
+    class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';

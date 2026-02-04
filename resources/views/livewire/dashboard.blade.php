@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Auth;
 use Flux\Flux;
 
 new #[Layout('components.layouts.app')]
-    #[Title('My Orders')]
+    #[Title('Dashboard')]
 class extends Component {
     use WithPagination;
     
     public bool $showFilters = false;
-    public ?string $orderCodeToCancel = null; // Changed from Order object to string code
+    public ?string $orderCodeToCancel = null;
     public $search = [
         'order_code' => '',
         'item_name' => '',
@@ -159,7 +159,7 @@ class extends Component {
             ->when($this->sortBy, function ($query) {
                 $query->orderBy($this->sortBy, $this->sortDirection);
             })
-            ->with(['items']) // Load order items to display in table
+            ->with(['items'])
             ->paginate($this->perPage);
     }
 
@@ -189,7 +189,6 @@ class extends Component {
     #[Computed]
     public function getPaymentMethodOptions()
     {
-        // These would typically come from a config or database
         return [
             'bank_transfer' => 'Bank Transfer',
             'credit_card' => 'Credit Card',

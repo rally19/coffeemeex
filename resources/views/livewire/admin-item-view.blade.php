@@ -7,7 +7,7 @@ use App\Models\{Item, Tag, TagType};
 use Flux\Flux;
 
 new #[Layout('components.layouts.admin')]
-    #[Title('Edit Item')]
+    #[Title('View Item')]
     
 class extends Component {
     use WithFileUploads;

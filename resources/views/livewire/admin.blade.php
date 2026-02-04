@@ -10,7 +10,7 @@ use App\Models\TagType;
 use Carbon\Carbon;
 
 new #[Layout('components.layouts.admin')]
-    #[Title('Dashboard')]
+    #[Title('Admin Dashboard')]
 class extends Component {
     public $stats = [];
     public array $salesData = [];
