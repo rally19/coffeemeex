@@ -38,12 +38,8 @@
             <flux:spacer />
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+                <flux:navlist.item icon="folder-git-2" href="https://github.com/rally19/coffeemeex" target="_blank">
                 {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
-                {{ __('Documentation') }}
                 </flux:navlist.item>
             </flux:navlist>
 
@@ -73,8 +69,8 @@
 
                     <flux:menu.separator />
 
-                    <flux:menu.item as="button" icon="arrow-right-start-on-rectangle" class="w-full" href="{{ route('dashboard') }}" wire:navigate>
-                        {{ __('Exit') }}
+                    <flux:menu.item as="button" icon="arrow-right-end-on-rectangle" class="w-full" href="{{ route('dashboard') }}" wire:navigate>
+                        {{ __('Website') }}
                     </flux:menu.item>
 
                     <flux:menu.separator />

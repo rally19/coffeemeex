@@ -97,6 +97,13 @@ new #[Title('Profile')]
         }
         
         $this->avatar = null;
+
+        Flux::toast(
+            variant: 'success',
+            heading: 'Changes saved.',
+            text: 'Profile settings updated.',
+            duration: 4000,
+        );
     }
 
     /**

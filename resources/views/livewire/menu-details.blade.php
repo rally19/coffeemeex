@@ -150,7 +150,7 @@ class extends Component {
         </div>
         
         <!-- Item Details Section -->
-        <div class="space-y-6">
+        <div class="space-y-6 p-5 bg-gradient-to-r from-amber-900 to-amber-800 rounded-lg">
             <div>
                 <div class="flex items-start justify-between">
                     <div>
@@ -198,7 +198,7 @@ class extends Component {
                     <div class="flex flex-wrap gap-2">
                         @foreach($item->tags as $tag)
                             <flux:badge 
-                                color="zinc" 
+                                color="amber" 
                                 variant="solid" 
                                 rounded
                             >

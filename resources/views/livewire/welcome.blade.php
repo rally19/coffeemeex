@@ -92,7 +92,7 @@ class extends Component {
                             class="bg-amber-600 hover:bg-amber-700 text-xs md:text-sm"
                         >
                             <flux:icon.shopping-cart class="w-4 h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
-                            <span class="hidden sm:inline">Order Online</span>
+                            <span class="hidden sm:inline">Order Now</span>
                             <span class="sm:hidden">Order</span>
                         </flux:button>
                         <flux:button 
@@ -330,7 +330,7 @@ class extends Component {
         @if($this->featuredItems->count())
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             @foreach($this->featuredItems as $item)
-            <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div class="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-gradient-to-r from-amber-900 to-amber-800">
                 <div class="relative">
                     @if($item->thumbnail_pic)
                         <div class="aspect-square w-full">
@@ -365,7 +365,7 @@ class extends Component {
                     
                     @if($item->total_sold > 0)
                         <div class="mb-3">
-                            <flux:text class="text-xs text-neutral-600 dark:text-neutral-400">
+                            <flux:text class="text-xs">
                                 <flux:icon.fire class="w-3 h-3 inline mr-1 text-orange-500" />
                                 {{ $item->total_sold }} sold
                             </flux:text>

@@ -425,7 +425,7 @@ class extends Component {
                         
                         <div>
                             <flux:label>Message</flux:label>
-                            <div class="mt-2 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="mt-2 p-4 rounded-lg border border-gray-200">
                                 <flux:text class="whitespace-pre-wrap">{{ $viewingContact->message }}</flux:text>
                             </div>
                         </div>

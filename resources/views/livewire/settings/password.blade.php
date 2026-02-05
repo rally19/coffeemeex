@@ -49,6 +49,7 @@ new #[Title('Password')]
                 :label="__('Current password')"
                 type="password"
                 required
+                viewable
                 autocomplete="current-password"
             />
             <flux:input
@@ -56,6 +57,7 @@ new #[Title('Password')]
                 :label="__('New password')"
                 type="password"
                 required
+                viewable
                 autocomplete="new-password"
             />
             <flux:input
@@ -63,6 +65,7 @@ new #[Title('Password')]
                 :label="__('Confirm Password')"
                 type="password"
                 required
+                viewable
                 autocomplete="new-password"
             />
 

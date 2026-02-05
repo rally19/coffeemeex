@@ -143,6 +143,14 @@
                     @endauth
                 </flux:navlist.group>
             </flux:navlist>
+            
+            <flux:spacer />
+
+            <flux:navlist variant="outline">
+                <flux:navlist.item icon="folder-git-2" href="https://github.com/rally19/coffeemeex" target="_blank">
+                {{ __('Repository') }}
+                </flux:navlist.item>
+            </flux:navlist>
         </flux:sidebar>
 
         {{ $slot }}

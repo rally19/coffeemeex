@@ -118,7 +118,7 @@ class extends Component {
                             size="sm"
                             class="bg-amber-600 hover:bg-amber-700 text-xs md:text-sm"
                         >
-                            <flux:icon.arrow-left class="w-4 h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
+                            <flux:icon.home class="w-4 h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
                             <span class="hidden sm:inline">Back to Home</span>
                             <span class="sm:hidden">Home</span>
                         </flux:button>

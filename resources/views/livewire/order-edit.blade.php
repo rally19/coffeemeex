@@ -50,7 +50,12 @@ class extends Component {
     public function updateOrder(): void
     {
         if ($this->isDisabled()) {
-            Flux::toast(variant: 'error', heading: 'Cannot Update', text: 'Order is locked.');
+            Flux::toast(
+                variant: 'danger',
+                heading: 'Cannot Update Order',
+                text: 'Your order update are locked!',
+                duration: 5000,
+            );
             return;
         }
         
@@ -87,7 +92,11 @@ class extends Component {
             'total_cost' => $totalCost,
         ]);
         
-        Flux::toast(variant: 'success', heading: 'Order Updated');
+        Flux::toast(
+            variant: 'success',
+            heading: 'Order Updated Successfully',
+            text: 'Your order has been updated successfully',
+        );
     }
     
     public function removePaymentProof(): void
@@ -100,7 +109,12 @@ class extends Component {
             $this->existingPaymentProof = null;
         }
         $this->paymentProof = null;
-        Flux::toast(variant: 'success', heading: 'Proof Removed');
+
+        Flux::toast(
+            variant: 'success',
+            heading: 'Deleted Successfully',
+            text: 'Your payment proof has been deleted successfully',
+        );
     }
     
     public function isDisabled(): bool

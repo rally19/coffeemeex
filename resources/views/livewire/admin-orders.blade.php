@@ -581,8 +581,8 @@ class extends Component {
                 </flux:table.cell>
                 <flux:table.cell>{{ $order->code }}</flux:table.cell>
                 <flux:table.cell>
-                    {{ $order->user->email ?? 'N/A' }}<br>
-                    <small class="text-neutral-600 dark:text-neutral-400">{{ $order->user->name ?? '' }}</small>
+                    {{ $order->email ?? 'N/A' }}<br>
+                    <small class="text-neutral-600 dark:text-neutral-400">{{ $order->name ?? '' }}</small>
                 </flux:table.cell>
                 <flux:table.cell>
                     <flux:badge variant="solid" :color="match($order->order_status) {

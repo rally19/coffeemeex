@@ -261,7 +261,7 @@ class extends Component {
                         <flux:chart.axis.tick />
                         <flux:chart.axis.line />
                     </flux:chart.axis>
-                    <flux:chart.axis axis="y" tick-prefix="₱" :format="[
+                    <flux:chart.axis axis="y" tick-prefix="Rp" :format="[
                         'notation' => 'compact',
                         'compactDisplay' => 'short',
                         'maximumFractionDigits' => 1,
